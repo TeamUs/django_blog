@@ -54,7 +54,7 @@
         <div class="text-start">
             <h1 class="mb-4 text-white fw-bold display-2">Статьи для профессионального роста</h1>
         </div>
-        {% for professional_growth in professional_growth_list %}
+        {% for professional_growth in page_obj %}
             <div style="margin-top: 1%">
                 <div class="container-fluid">
                     <div class="row align-items-start">
@@ -76,6 +76,27 @@
             <p>Нет доступных вакансий</p>
         {% endfor %}
     </div>
+    <div class="pagination mt-4 text-center" style="font-size: 1.25rem; font-weight: bold;">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a class="text-decoration-none text-dark" href="?page=1">&laquo; Первая</a>
+                <a class="text-decoration-none text-dark" href="?page={{ page_obj.previous_page_number }}">Предыдущая</a>
+            {% endif %}
+
+            <span class="current">
+                {% if page_obj.paginator.num_pages %}
+                    Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}
+                {% else %}
+                    Страница 1 из 1
+                {% endif %}
+            </span>
+
+            {% if page_obj.has_next %}
+                <a class="text-decoration-none text-dark" href="?page={{ page_obj.next_page_number }}">Следующая</a>
+                <a class="text-decoration-none text-dark" href="?page={{ page_obj.paginator.num_pages }}">Последняя &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
     {% endblock content %}
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
@@ -88,3 +109,5 @@
         <p>&copy; 2024 Блог о работе в IT</p>
     </div>
 </footer>
+</body>
+</html>

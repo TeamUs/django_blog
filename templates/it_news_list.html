@@ -49,44 +49,63 @@
             </div>
         </nav>
     </header>
-{% block content %}
     <div class="container mt-4">
         <div class="text-center">
             <h1 class="mb-4 text-white fw-bold display-1">IT News</h1>
             <p class="text-white">Самые актуальные новости из мира информационных технологий</p>
-      </div>
-        {% for it_news in it_news_list %}
-            <div style="margin-top: 1%">
-                <div class="container-fluid">
-                    <div class="row align-items-start">
-                        <div class="col">
-                            <div class="bg-image card shadow-1-strong border border-dark"
-                                 style="background: linear-gradient(90deg, rgba(58,0,100,1) 0%, rgba(7,188,137,1) 49%, rgba(58,0,100,1) 100%);">
-                                <div class="card-body text-white">
-                                    <h2>{{ it_news.title }}</h2>
-                                    <p>Автор: <b>{{ it_news.author }}</b></p>
-                                    <p>{{ it_news.body }}</p>
-                                    <p>Дата создания: {{ it_news.created_at }}</p>
+        </div>
+        {% block content %}
+            {% for it_news in page_obj %}
+                <div style="margin-top: 1%">
+                    <div class="container-fluid">
+                        <div class="row align-items-start">
+                            <div class="col">
+                                <div class="bg-image card shadow-1-strong border border-dark"
+                                     style="background: linear-gradient(90deg, rgba(58,0,100,1) 0%, rgba(7,188,137,1) 49%, rgba(58,0,100,1) 100%);">
+                                    <div class="card-body text-white">
+                                        <h2>{{ it_news.title }}</h2>
+                                        <p>Автор: <b>{{ it_news.author }}</b></p>
+                                        <p>{{ it_news.body }}</p>
+                                        <p>Дата создания: {{ it_news.created_at }}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        {% empty %}
-            <p>Нет новостей</p>
-        {% endfor %}
-    </div>
-{% endblock content %}
+            {% empty %}
+                <p>Нет новостей</p>
+            {% endfor %}
+        {% endblock content %}
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-            crossorigin="anonymous"></script>
-<footer class="bg-dark text-white py-4">
-    <div class="container text-center">
+ <div class="pagination mt-4 text-center" style="font-size: 1.25rem; font-weight: bold;">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a class="text-decoration-none text-dark" href="?page=1">&laquo; Первая</a>
+                    <a class="text-decoration-none text-dark" href="?page={{ page_obj.previous_page_number }}">Предыдущая</a>
+                {% endif %}
+
+                <span class="current">
+                    {% if page_obj.paginator.num_pages %}
+                        Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}
+                    {% else %}
+                        Страница 1 из 1
+                    {% endif %}
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a class="text-decoration-none text-dark" href="?page={{ page_obj.next_page_number }}">Следующая</a>
+                    <a class="text-decoration-none text-dark" href="?page={{ page_obj.paginator.num_pages }}">Последняя &raquo;</a>
+                {% endif %}
+            </span>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+                    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+                    crossorigin="anonymous"></script>
+        </div>
+    </div>
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
         <p>&copy; 2024 Блог о работе в IT</p>
     </div>
 </footer>
 </div>
-</body>
-</html>

@@ -11,5 +11,5 @@ urlpatterns = [
     path('expert-interview/', ExpertInterviewListView.as_view(), name='expert_interview_list'),
     path('interview_detail/<int:pk>/', InterviewDetailListView.as_view(), name='interview_detail_list'),
     path('it-news/', ITNewsListView.as_view(), name='it_news_list'),
-    path('connect/', ConnectListView.as_view(), name='connect_list')
+    path('connect/', ConnectListView.as_view(), name='connect_list'),
 ]
