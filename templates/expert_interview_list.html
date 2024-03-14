@@ -1,5 +1,5 @@
+{% load i18n %}
 <!DOCTYPE html>
-<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Блог о работе в IT | Интервью с экспертами</title>
@@ -8,40 +8,40 @@
           integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body>
-<div class="g-image"
+<div class="bg-image"
      style="background: linear-gradient(90deg, rgba(68,68,82,1) 0%, rgb(154,147,147) 64%, rgba(77,95,98,1) 100%); background-size: 100%;">
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/">Блог о работе в IT</a>
+                <a class="navbar-brand" href="/">{% trans "Блог о работе в IT" %}</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Переключатель навигации">
+                        aria-expanded="false" aria-label="{% trans "Переключатель навигации" %}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/">Главная</a>
+                            <a class="nav-link active" aria-current="page" href="/">{% trans "Главная" %}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/about">О нашем блоге</a>
+                            <a class="nav-link" href="/about">{% trans "О нашем блоге" %}</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Разделы блога
+                                {% trans "Разделы блога" %}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="/job-search">Поиск работы в IT</a></li>
-                                <li><a class="dropdown-item" href="/skill-development">Развитие навыков</a></li>
-                                <li><a class="dropdown-item" href="/professional-growth">Профессиональный рост</a></li>
-                                <li><a class="dropdown-item" href="/expert-interview">Интервью с экспертами</a></li>
-                                <li><a class="dropdown-item" href="/it-news">Новости и тенденции в IT</a></li>
+                                <li><a class="dropdown-item" href="/job-search">{% trans "Поиск работы в IT" %}</a></li>
+                                <li><a class="dropdown-item" href="/skill-development">{% trans "Развитие навыков" %}</a></li>
+                                <li><a class="dropdown-item" href="/professional-growth">{% trans "Профессиональный рост" %}</a></li>
+                                <li><a class="dropdown-item" href="/expert-interview">{% trans "Интервью с экспертами" %}</a></li>
+                                <li><a class="dropdown-item" href="/it-news">{% trans "Новости и тенденции в IT" %}</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="/connect">Контакты и обратная связь</a></li>
+                                <li><a class="dropdown-item" href="/connect">{% trans "Контакты и обратная связь" %}</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -51,8 +51,8 @@
     </header>
     <div class="container mt-4">
         <div class="text-center">
-            <h1 class="mb-4 text-white fw-bold display-2">Интервью с экспертами</h1>
-            <p class="text-white">Вдохновляющие беседы с ведущими специалистами IT-индустрии</p>
+            <h1 class="mb-4 text-white fw-bold display-2">{% trans "Интервью с экспертами" %}</h1>
+            <p class="text-white">{% trans "Вдохновляющие беседы с ведущими специалистами IT-индустрии" %}</p>
         </div>
         {% block content %}
             <div class="container">
@@ -66,13 +66,13 @@
                                     <p>{{ expert_interview.interviewer }}</p>
                                     <p id="expert_interview-body-{{ expert_interview.pk }}" style="display: none;"></p>
                                     <a href="{% url 'interview_detail_list' expert_interview.pk %}" onclick="showInterviewDetails({{ expert_interview.pk }})">
-                                        <button type="button" class="btn btn-primary">Читать далее</button>
+                                        <button type="button" class="btn btn-primary">{% trans "Читать далее" %}</button>
                                     </a>
                                 </div>
                             </div>
                         </div>
                     {% empty %}
-                        <p>Нет интервью</p>
+                        <p>{% trans "Нет интервью" %}</p>
                     {% endfor %}
                 </div>
             </div>
@@ -81,31 +81,47 @@
         <div class="pagination mt-4 text-center" style="font-size: 1.25rem; font-weight: bold;">
             <span class="step-links">
                 {% if page_obj.has_previous %}
-                    <a class="text-decoration-none text-dark" href="?page=1">&laquo; Первая</a>
-                    <a class="text-decoration-none text-dark" href="?page={{ page_obj.previous_page_number }}">Предыдущая</a>
+                    <a class="text-decoration-none text-dark" href="?page=1">{% trans "« Первая" %}</a>
+                    <a class="text-decoration-none text-dark" href="?page={{ page_obj.previous_page_number }}">{% trans "Предыдущая" %}</a>
                 {% endif %}
 
                 <span class="current">
                     {% if page_obj.paginator.num_pages %}
-                        Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}
+                        {% trans "Страница" %} {{ page_obj.number }} {% trans "из" %} {{ page_obj.paginator.num_pages }}
                     {% else %}
-                        Страница 1 из 1
+                        {% trans "Страница 1 из 1" %}
                     {% endif %}
                 </span>
 
                 {% if page_obj.has_next %}
-                    <a class="text-decoration-none text-dark" href="?page={{ page_obj.next_page_number }}">Следующая</a>
-                    <a class="text-decoration-none text-dark" href="?page={{ page_obj.paginator.num_pages }}">Последняя &raquo;</a>
+                    <a class="text-decoration-none text-dark" href="?page={{ page_obj.next_page_number }}">{% trans "Следующая" %}</a>
+                    <a class="text-decoration-none text-dark" href="?page={{ page_obj.paginator.num_pages }}">{% trans "Последняя »" %}</a>
                 {% endif %}
             </span>
         </div>
     </div>
-    <footer class="bg-dark text-white py-4">
-        <div class="container text-center">
-            <p>&copy; 2024 Блог о работе в IT</p>
-        </div>
-    </footer>
 </div>
+
+<footer class="bg-dark text-white py-4">
+    <div class="container text-center">
+        <p>&copy; {% trans "2024 Блог о работе в IT" %}</p>
+        <form id="language-switch-form" action="{% url 'set_language' %}" method="post">{% csrf_token %}
+            <input name="next" type="hidden" value="{{ redirect_to }}">
+            <select id="language-select" name="language">
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+                {% for language in languages %}
+                    <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
+                            selected{% endif %}>
+                        {{ language.name_local }} ({{ language.code }})
+                    </option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Go" style="display: none;">
+        </form>
+    </div>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
@@ -122,6 +138,9 @@
             expert_interviewImage.style.display = 'none';
         }
     }
+
+    document.getElementById('language-select').addEventListener('change', function() {
+        document.getElementById('language-switch-form').submit();
+    });
 </script>
 </body>
-</html>

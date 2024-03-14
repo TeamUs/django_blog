@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from .views import Bloglist, BlogDetailView, AboutPageView, JobSearchListView, SkillDevelopmentListView, ProfessionalGrowthListView, ExpertInterviewListView, ITNewsListView, ConnectListView, InterviewDetailListView
 
 urlpatterns = [
@@ -12,4 +12,5 @@ urlpatterns = [
     path('interview_detail/<int:pk>/', InterviewDetailListView.as_view(), name='interview_detail_list'),
     path('it-news/', ITNewsListView.as_view(), name='it_news_list'),
     path('connect/', ConnectListView.as_view(), name='connect_list'),
+    path('i18n/', include("django.conf.urls.i18n"))
 ]

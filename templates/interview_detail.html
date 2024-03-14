@@ -1,5 +1,5 @@
+{% load i18n %}
 <!DOCTYPE html>
-<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Блог о работе в IT | {{ expert_interview.title }}</title>
@@ -13,35 +13,35 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/">Блог о работе в IT</a>
+                <a class="navbar-brand" href="/">{% trans "Блог о работе в IT" %}</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Переключатель навигации">
+                        aria-expanded="false" aria-label="{% trans "Переключатель навигации" %}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/">Главная</a>
+                            <a class="nav-link active" aria-current="page" href="/">{% trans "Главная" %}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/about">О нашем блоге</a>
+                            <a class="nav-link" href="/about">{% trans "О нашем блоге" %}</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Разделы блога
+                                {% trans "Разделы блога" %}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="/job-search">Поиск работы в IT</a></li>
-                                <li><a class="dropdown-item" href="/skill-development">Развитие навыков</a></li>
-                                <li><a class="dropdown-item" href="/professional-growth">Профессиональный рост</a></li>
-                                <li><a class="dropdown-item" href="/expert-interview">Интервью с экспертами</a></li>
-                                <li><a class="dropdown-item" href="/it-news">Новости и тенденции в IT</a></li>
+                                <li><a class="dropdown-item" href="/job-search">{% trans "Поиск работы в IT" %}</a></li>
+                                <li><a class="dropdown-item" href="/skill-development">{% trans "Развитие навыков" %}</a></li>
+                                <li><a class="dropdown-item" href="/professional-growth">{% trans "Профессиональный рост" %}</a></li>
+                                <li><a class="dropdown-item" href="/expert-interview">{% trans "Интервью с экспертами" %}</a></li>
+                                <li><a class="dropdown-item" href="/it-news">{% trans "Новости и тенденции в IT" %}</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="/connect">Контакты и обратная связь</a></li>
+                                <li><a class="dropdown-item" href="/connect">{% trans "Контакты и обратная связь" %}</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -57,9 +57,9 @@
                         <div class="bg-image card shadow-1-strong"
                              style="background: linear-gradient(90deg, rgba(58,0,100,1) 0%, rgba(7,188,137,1) 49%, rgba(58,0,100,1) 100%);">
                             <div class="card-body text-white">
-                               <h2>{{ expert_interview.title }}</h2>
-                                <p>Автор интервью: <b>{{ expert_interview.author }}</b></p>
-                                <p>{{ expert_interview.body }}</p>
+                               <h2>{% trans expert_interview.title %}</h2>
+                                <p>{% trans "Автор интервью" %}: <b>{{ expert_interview.author }}</b></p>
+                                <p>{% trans expert_interview.body %}</p>
                             </div>
                         </div>
                     </div>
@@ -73,9 +73,9 @@
             crossorigin="anonymous"></script>
 <footer class="bg-dark text-white py-4">
     <div class="container text-center">
-        <p>&copy; 2024 Блог о работе в IT</p>
+        <p>&copy; {% trans "2024 Блог о работе в IT" %}</p>
     </div>
 </footer>
 </div>
 </body>
-</html>
+
