@@ -1,0 +1,196 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-14 16:48+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+
+#: .\templates\about.html:19
+msgid "Главная"
+msgstr "Home"
+
+#: .\templates\about.html:20
+msgid "О нашем блоге"
+msgstr "About Us"
+
+#: .\templates\about.html:27
+msgid "Разделы блога"
+msgstr "Blog Sections"
+
+#: .\templates\about.html:28
+msgid "Поиск работы в IT"
+msgstr "Job Search in IT"
+
+#: .\templates\about.html:29
+msgid "Развитие навыков"
+msgstr "Skill Development"
+
+#: .\templates\about.html:30
+msgid "Профессиональный рост"
+msgstr "Professional Growth"
+
+#: .\templates\about.html:31
+msgid "Интервью с экспертами"
+msgstr "Expert Interviews"
+
+#: .\templates\about.html:32
+msgid "Новости и тенденции в IT"
+msgstr "IT News and Trends"
+
+#: .\templates\about.html:34
+msgid "Контакты и обратная связь"
+msgstr "Contact and Feedback"
+
+#: .\templates\about.html:39
+msgid "Добро пожаловать в наш блог о работе в сфере информационных технологий!"
+msgstr "Welcome to our blog about working in the field of information technology!"
+
+#: .\templates\about.html:40
+msgid "IT - это не просто профессия, это образ жизни. Мы обсуждаем самые актуальные темы, включая поиск работы, развитие навыков, профессиональный рост, интервью с экспертами, а также новые тенденции и перспективы в IT-индустрии. Наша цель - помочь вам стать успешным профессионалом в мире технологий и достичь новых высот в вашей карьере в IT! Здесь вы найдете полезные статьи, советы и руководства о карьере в IT. Наш блог предлагает широкий спектр материалов, начиная от технических решений и заканчивая советами по саморазвитию и профессиональному росту. Присоединяйтесь к нашему сообществу и будьте на шаг впереди в мире технологий."
+msgstr "IT is not just a profession, it's a lifestyle. We discuss the most relevant topics, including job search, skill development, professional growth, expert interviews, as well as new trends and prospects in the IT industry. Our goal is to help you become a successful professional in the world of technology and reach new heights in your IT career! Here you will find useful articles, tips, and guides on a career in IT. Our blog offers a wide range of materials, from technical solutions to self-development and professional growth advice. Join our community and stay ahead in the world of technology."
+
+#: .\templates\about.html:42
+msgid "2024 Блог о работе в IT"
+msgstr "2024 Blog about IT Work"
+
+#: .\templates\home.html:6
+msgid "Блог о работе в IT"
+msgstr "Blog about IT Work"
+
+#: .\templates\home.html:21
+msgid "Добро пожаловать в блог о работе в IT!"
+msgstr "Welcome to the blog about IT work!"
+
+#: .\templates\home.html:22
+msgid "Здесь вы найдете самые свежие новости, полезные статьи и советы от экспертов в области информационных технологий. Присоединяйтесь к нам и оставайтесь в курсе последних событий в мире IT!"
+msgstr "Here you will find the latest news, useful articles, and advice from experts in the field of information technology. Join us and stay up to date with the latest events in the IT world!"
+
+#: .\templates\home.html:56
+msgid "Публикации"
+msgstr "Publications"
+
+#: .\templates\home.html:60
+msgid "Автор поста"
+msgstr "Post author"
+
+#: .\templates\home.html:74
+msgid "« Первая"
+msgstr "« First"
+
+#: .\templates\home.html:75
+msgid "Предыдущая"
+msgstr "Previous"
+
+#: .\templates\home.html:80
+msgid "Страница"
+msgstr "Page"
+
+#: .\templates\home.html:81
+msgid "из"
+msgstr "of"
+
+#: .\templates\home.html:84
+msgid "Следующая"
+msgstr "Next"
+
+#: .\templates\home.html:85
+msgid "Последняя »"
+msgstr "Last »"
+
+#: .\templates\home.html:80
+msgid "Подробнее"
+msgstr "More details"
+
+#: .\templates\home.html:78
+msgid "Вы всегда можете связаться с нами!"
+msgstr "You can always contact us!"
+
+#: .\templates\home.html:79
+msgid "По всем вопросам обращайтесь по адресу:"
+msgstr "For any questions, please contact:"
+
+#: .\templates\home.html:79
+msgid "Телефон: +1234567890"
+msgstr "Phone number: +1234567890"
+
+#: .\templates\home.html:79
+msgid "Дата создания"
+msgstr "Date of creation"
+
+#: .\templates\home.html:79
+msgid "Самые актуальные новости из мира информационных технологий"
+msgstr "The latest news from the world of information technology"
+
+#: .\templates\home.html:79
+msgid "Автор"
+msgstr "Author"
+
+#: .\templates\home.html:79
+msgid "Нет новостей"
+msgstr "There is no news"
+
+#: .\templates\home.html:79
+msgid "Нет доступных вакансий"
+msgstr "There are no vacancies available"
+
+#: .\templates\home.html:79
+msgid "Список вакансий"
+msgstr "List of vacancies"
+
+#: .\templates\home.html:79
+msgid "Автор вакансии"
+msgstr "The author of the vacancy"
+
+#: .\templates\home.html:81
+msgid "Вдохновляющие беседы с ведущими специалистами IT-индустрии"
+msgstr "Inspiring conversations with leading IT industry experts"
+
+#: .\templates\home.html:81
+msgid "Читать далее"
+msgstr "Read more"
+
+#: .\templates\home.html:79
+msgid "Автор интервью"
+msgstr "The author of the interview"
+
+#: .\templates\home.html:79
+msgid "Статьи для развития навыков"
+msgstr "Articles for skills development"
+
+#: .\templates\home.html:79
+msgid "Автор статьи:"
+msgstr "The author of the article:"
+
+#: .\templates\home.html:79
+msgid "Дата создания:"
+msgstr "Date of creation:"
+
+#: .\templates\home.html:79
+msgid "Нет доступных материалов для развития навыков"
+msgstr "There are no available materials for skill development"
+
+#: .\templates\home.html:84
+msgid "Статьи для профессионального роста"
+msgstr "Articles for professional growth"
+
+#: .\templates\home.html:84
+msgid "Автор статьи"
+msgstr "The author of the article"
+
+#: .\templates\home.html:84
+msgid "Нет доступных статей"
+msgstr "There are no articles available"
