@@ -48,9 +48,9 @@
                 </div>
                <div id="auth-buttons" class="d-flex flex-column align-items-end me-3">
     {% if user.is_authenticated %}
-        <span class="text-light mb-2">
-            <a href="{% url 'profile' %}">Добро пожаловать, {{ user.username }}!</a>
-        </span>
+        <span class="text-light mb-4">
+    <a href="{% url 'profile' %}" class="text-decoration-none text-light">Добро пожаловать, {{ user.username }}!</a>
+</span>
         <form action="{% url 'logout' %}" method="post">
             {% csrf_token %}
             <button type="submit" class="btn btn-outline-light">Выйти</button>

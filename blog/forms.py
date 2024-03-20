@@ -25,5 +25,4 @@ class AuthUserForm(AuthenticationForm):
 class ProfileEditForm(forms.ModelForm):
     class Meta:
         model = CustomUser
-        fields = ['first_name', 'last_name', 'description', 'age', 'gender']
-
+        fields = ['first_name', 'last_name', 'email']

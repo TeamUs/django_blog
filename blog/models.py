@@ -1,5 +1,4 @@
 from django.db import models
-from django.db import models
 from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.utils.translation import gettext_lazy as _
 
@@ -76,8 +75,8 @@ class Connect(models.Model):
 
 class CustomUser(AbstractUser):
     description = models.TextField(blank=True, null=True)
-    age = models.PositiveIntegerField(blank=True, null=True)
     gender = models.CharField(max_length=10, blank=True, null=True)
+    age = models.PositiveIntegerField(blank=True, null=True)
 #    avatar = models.ImageField(upload_to='avatars/', blank=True, null=True)
 
     groups = models.ManyToManyField(
@@ -94,4 +93,5 @@ class CustomUser(AbstractUser):
         related_name='customuser_set',
         related_query_name='customuser',
     )
+
 
