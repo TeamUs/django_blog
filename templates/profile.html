@@ -1,0 +1,23 @@
+{% extends 'home.html' %}
+
+{% block content %}
+    <div class="profile-container">
+        <h2>Личный кабинет пользователя: {{ user.username }}</h2>
+
+        {% if user.first_name or user.last_name or user.description or user.age or user.gender or user.avatar %}
+            <p>Имя: {{ user.first_name }}</p>
+            <p>Фамилия: {{ user.last_name }}</p>
+            <p>О себе: {{ user.description }}</p>
+            <p>Возраст: {{ user.age }}</p>
+            <p>Пол: {{ user.gender }}</p>
+            {% if user.avatar %}
+                <div class="avatar-container">
+                    <img class="avatar" src="{{ user.avatar.url }}" alt="Аватар">
+                </div>
+            {% endif %}
+        {% endif %}
+
+        <a href="{% url 'profile_edit' %}" class="edit-profile-button">Изменить данные</a>
+    </div>
+{% endblock content %}
+

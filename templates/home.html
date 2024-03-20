@@ -46,6 +46,17 @@
                         </li>
                     </ul>
                 </div>
+                <div id="auth-buttons" class="d-flex flex-column align-items-end me-3">
+                    {% if user.is_authenticated %}
+                        <span class="text-light mb-2">
+                            <a href="{% url 'profile' %}">Добро пожаловать, {{ user.username }}!</a>
+                        </span>
+                        <a href="{% url 'logout' %}" class="btn btn-outline-light">Выйти</a>
+                    {% else %}
+                        <a href="{% url 'register' %}" class="btn btn-outline-light mb-2">Регистрация</a>
+                        <a href="{% url 'login' %}" class="btn btn-outline-light">Войти</a>
+                    {% endif %}
+                </div>
             </div>
         </nav>
     </header>
