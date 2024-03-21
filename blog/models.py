@@ -85,7 +85,3 @@ class User(AbstractUser):
 
     class Meta:
         swappable = 'AUTH_USER_MODEL'
-
-
-User.groups.field.related_name = 'blog_groups'
-User.user_permissions.field.related_name = 'blog_user_permissions'

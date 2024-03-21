@@ -6,7 +6,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="alert alert-danger d-none" role="alert"></div>
-            <form action="{% url 'register_ajax' %}" method="POST" id="register_form">
+            <form action="{% url 'register_ajax' %}" method="POST" id="register_ajax">
                 {% csrf_token %}
                 <div class="modal-body">
                     <div class="mb-3">
@@ -27,7 +27,6 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
                     <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
                 </div>
             </form>

@@ -1,12 +1,12 @@
 {% extends 'home.html' %}
 
 {% block content %}
-    <h1>Register</h1>
-    <hr>
-
-    <form action="{% url 'register' %}" method="post">
-        {{ form }}
+  <div class="container mt-5 registration-container">
+    <h2>Регистрация</h2>
+    <form method="post" action="{% url 'register' %}">
         {% csrf_token %}
-    <button type="submit" class="btn btn-success">Зарегистрироваться</button>
+        {{ form.as_p }}
+        <button type="submit">Зарегистрироваться</button>
     </form>
+  </div>
 {% endblock %}
