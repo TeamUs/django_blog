@@ -1,28 +1,44 @@
-# forms.py
-from django.contrib.auth.models import User
 
-from django.utils.translation import gettext_lazy as _
-from .models import CustomUser
+from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import (
+    UserCreationForm as UserCreationFormDjango
+)
 from django import forms
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.utils.translation import gettext_lazy as _
 
-class RegisterUserForm(UserCreationForm):
-    class Meta:
+User = get_user_model()
+
+
+class AuthenticationAjaxForm(forms.Form):
+    email = forms.EmailField(
+        label=_("Username"),
+        max_length=254,
+        widget=forms.EmailInput(
+            attrs={
+                'autocomplete': 'username',
+                'class': 'form-control'
+            }
+        )
+    )
+    password = forms.CharField(
+        label=_("Password"),
+        strip=False,
+        widget=forms.PasswordInput(
+            attrs={
+                "autocomplete": "current-password",
+                'class': 'form-control'
+            }
+        ),
+    )
+
+
+class UserCreationForm(UserCreationFormDjango):
+    email = forms.EmailField(
+        label=_("Email"),
+        max_length=254,
+        widget=forms.EmailInput(attrs={'autocomplete': 'email'})
+    )
+
+    class Meta(UserCreationFormDjango.Meta):
         model = User
-        fields = ['username', 'password1', 'password2']
-        labels = {
-            'username': _('Имя пользователя'),
-            'password1': _('Пароль'),
-            'password2': _('Подтверждение пароля'),
-        }
-
-class AuthUserForm(AuthenticationForm):
-    class Meta:
-        model = User
-        fields = ['username', 'password']
-
-
-class ProfileEditForm(forms.ModelForm):
-    class Meta:
-        model = CustomUser
-        fields = ['first_name', 'last_name', 'email']
+        fields = ("username", "email")

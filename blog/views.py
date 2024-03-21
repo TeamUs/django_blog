@@ -1,14 +1,5 @@
 from django.views.generic import ListView, DetailView, TemplateView
 from .models import Post, JobSearch, SkillDevelopment, ProfessionalGrowth, ExpertInterview, ITNews, Connect
-from django.contrib.auth.models import User
-from django.urls import reverse_lazy
-from .forms import AuthUserForm, RegisterUserForm
-from django.contrib.auth import authenticate, login
-from django.views.generic.edit import FormView
-from django.shortcuts import render, redirect
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views import View
-from .forms import ProfileEditForm
 
 
 class Bloglist(ListView):
@@ -63,55 +54,62 @@ class ConnectListView(ListView):
     template_name = 'connect.html'
     context_object_name = 'posts'
 
-class RegisterUserView(FormView):
-    template_name = 'register.html'
-    form_class = RegisterUserForm
-    success_url = reverse_lazy('home')
 
-    def form_valid(self, form):
-        username = form.cleaned_data['username']
-        password = form.cleaned_data['password1']
-        User.objects.create_user(username=username, password=password)
-        aut_user = authenticate(username=username, password=password)
-        login(self.request, aut_user)
-        return super().form_valid(form)
+from django.contrib.auth import authenticate, login
+from django.views import View
+from django.http import JsonResponse
 
-class LoginUserView(FormView):
-    template_name = 'login.html'
-    form_class = AuthUserForm
-    success_url = reverse_lazy('home')  # Укажите URL для перехода после успешной аутентификации
-
-    def form_valid(self, form):
-        login(self.request, form.get_user())
-        return super().form_valid(form)
+from blog.forms import UserCreationForm
 
 
+class LoginAjaxView(View):
 
-class ProfileView(LoginRequiredMixin, View):
-    template_name = 'profile.html'
+    def post(self, request):
+        username = request.POST.get('username')  # Изменено на 'username'
+        password = request.POST.get('password')
 
-    def get(self, request, *args, **kwargs):
-        form = ProfileEditForm(instance=request.user)
-        return render(request, self.template_name, {'form': form})
+        if username and password:
+            user = authenticate(username=username, password=password)  # Изменено на 'username'
+            if user:
+                login(request, user)
+                return JsonResponse(
+                    data={
+                        'status': 201
+                    },
+                    status=200
+                )
+            return JsonResponse(
+                data={
+                    'status': 400,
+                    'error': 'Пароль и логин не валидные'
+                },
+                status=200
+            )
+        return JsonResponse(
+            data={
+                'status': 400,
+                'error': 'Введите логин и пароль'
+            },
+            status=200
+        )
 
-    def post(self, request, *args, **kwargs):
-        form = ProfileEditForm(request.POST, request.FILES, instance=request.user)
+class RegisterAjaxView(View):
+    def post(self, request):
+        form = UserCreationForm(request.POST)
+
         if form.is_valid():
             form.save()
-            return redirect('profile')
-        return render(request, self.template_name, {'form': form})
-
-class ProfileEditView(LoginRequiredMixin, View):
-    template_name = 'profile_edit.html'
-
-    def get(self, request, *args, **kwargs):
-        form = ProfileEditForm(instance=request.user)
-        return render(request, self.template_name, {'form': form})
-
-    def post(self, request, *args, **kwargs):
-        form = ProfileEditForm(request.POST, request.FILES, instance=request.user)
-        if form.is_valid():
-            form.save()
-            return redirect('profile')
-        return render(request, self.template_name, {'form': form})
-
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return JsonResponse(
+                data={'status': 201},
+                status=200
+            )
+        else:
+            errors = form.errors.get_json_data()
+            return JsonResponse(
+                data={'status': 400, 'errors': errors},
+                status=200
+            )

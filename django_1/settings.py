@@ -28,6 +28,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -66,6 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django_1.context_processor.get_context_data'
             ],
         },
     },
@@ -132,7 +136,10 @@ LOCALE_PATHS = [
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = (BASE_DIR / 'static')
+STATIC_ROOT = BASE_DIR / 'static'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static_src'
+]
 
 MEDIA_ROOT = (BASE_DIR / 'media')
 MEDIA_URL = '/media/'

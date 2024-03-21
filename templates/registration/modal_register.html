@@ -1,0 +1,36 @@
+<div class="modal fade" id="register_ajax" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Регистрация</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="alert alert-danger d-none" role="alert"></div>
+            <form action="{% url 'register_ajax' %}" method="POST" id="register_form">
+                {% csrf_token %}
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="register_username" class="form-label">Имя</label>
+                        <input type="text" class="form-control" id="register_username" name="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="register_email" class="form-label">Почта</label>
+                        <input type="email" class="form-control" id="register_email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="register_password1" class="form-label">Пароль</label>
+                        <input type="password" class="form-control" id="register_password1" name="password1" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="register_password2" class="form-label">Подтверждение пароля</label>
+                        <input type="password" class="form-control" id="register_password2" name="password2" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
