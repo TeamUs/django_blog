@@ -87,6 +87,5 @@ class User(AbstractUser):
         swappable = 'AUTH_USER_MODEL'
 
 
-# Добавьте related_name для обратных связей с группами и разрешениями
 User.groups.field.related_name = 'blog_groups'
 User.user_permissions.field.related_name = 'blog_user_permissions'
