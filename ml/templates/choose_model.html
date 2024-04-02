@@ -1,20 +1,18 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Выбор модели предсказания</title>
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
-
-</head>
-<body>
-    <h1>Выберите модель предсказания</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Выбрать модель</button>
-
-    </form>
-</body>
-</html>
+{% extends 'home.html' %}
+{% load i18n %}
+{% block content %}
+<div class="container-fluid d-flex align-items-center justify-content-center vh-100" style="background: linear-gradient(90deg, rgba(68,68,82,1) 0%, rgb(147,140,140) 64%, rgba(77,95,98,1) 100%); background-size: 100%;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto text-center text-white">
+                <h1 class="display-4 fw-bold mb-4">Модельное обучение и предсказание</h1>
+                <form method="post" class="mb-4">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary">Выбрать модель</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

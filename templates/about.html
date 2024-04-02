@@ -1,3 +1,4 @@
+{% load static %}
 {% load i18n %}
 <!DOCTYPE html>
 <html lang="ru">
@@ -8,89 +9,92 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <style>
-        .bg-image {
-            background: linear-gradient(90deg, rgba(68,68,82,1) 0%, rgba(215,215,228,1) 64%, rgba(77,95,98,1) 100%);
-            background-size: 100%;
-            padding: 50px 0;
-            text-align: center;
-            color: #fff;
-        }
-
-        .card-bg {
-            background: linear-gradient(90deg, rgba(58,0,100,1) 0%, rgba(7,188,137,1) 49%, rgba(58,0,100,1) 100%);
-        }
-
-        .card-body {
-            padding: 30px;
-        }
-
-        .card-body h2 {
-            font-size: 28px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .card-body p {
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .card-img {
-            margin-top: 30px;
+        .post-container {
+            margin-top: 50px; /* Увеличение расстояния над постом */
+            margin-bottom: 50px; /* Увеличение расстояния под постом */
         }
     </style>
 </head>
 <body>
-<header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">{% trans "Блог о работе в IT" %}</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Переключатель навигации">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/">{% trans "Главная" %}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/about">{% trans "О нашем блоге" %}</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">
-                            {% trans "Разделы блога" %}
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="/job-search">{% trans "Поиск работы в IT" %}</a></li>
-                            <li><a class="dropdown-item" href="/skill-development">{% trans "Развитие навыков" %}</a></li>
-                            <li><a class="dropdown-item" href="/professional-growth">{% trans "Профессиональный рост" %}</a></li>
-                            <li><a class="dropdown-item" href="/expert-interview">{% trans "Интервью с экспертами" %}</a></li>
-                            <li><a class="dropdown-item" href="/it-news">{% trans "Новости и тенденции в IT" %}</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="/connect">{% trans "Контакты и обратная связь" %}</a></li>
-                        </ul>
-                    </li>
-                </ul>
+<div class="bg-image"
+     style="background: linear-gradient(90deg, rgba(68,68,82,1) 0%, rgb(147,140,140) 64%, rgba(77,95,98,1) 100%); background-size: 100%;">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">{% trans "Блог о работе в IT" %}</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="{% trans "Переключатель навигации" %}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">{% trans "Главная" %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">{% trans "О нашем блоге" %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/app/choose_model">{% trans "Модели" %}</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                                {% trans "Разделы блога" %}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="/job-search">{% trans "Поиск работы в IT" %}</a></li>
+                                <li><a class="dropdown-item" href="/skill-development">{% trans "Развитие навыков" %}</a></li>
+                                <li><a class="dropdown-item" href="/professional-growth">{% trans "Профессиональный рост" %}</a></li>
+                                <li><a class="dropdown-item" href="/expert-interview">{% trans "Интервью с экспертами" %}</a></li>
+                                <li><a class="dropdown-item" href="/it-news">{% trans "Новости и тенденции в IT" %}</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="/connect">{% trans "Контакты и обратная связь" %}</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+               <div id="auth-buttons" class="d-flex flex-column align-items-end me-3">
+    {% if user.is_authenticated %}
+        <span class="text-light mb-4">
+    <a href="" class="text-decoration-none text-light">Добро пожаловать, {{ user.username }}!</a>
+</span>
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-light">Выйти</button>
+        </form>
+    {% else %}
+        <a href="#" data-bs-toggle="modal" data-bs-target="#register_ajax" class="btn btn-outline-light mb-2">
+                Регистрация
+            </a>
+{% if not user.is_authenticated %}
+        <li class="list-group-item">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#login_ajax" class="btn btn-outline-light mb-2">
+                Войти
+            </a>
+        </li>
+    {% endif %}    {% endif %}
+</div>
             </div>
-        </div>
-    </nav>
-</header>
+        </nav>
+    </header>
 
 <div class="bg-image">
-    <div class="container">
+    <div class="container post-container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card card-bg">
-                    <div class="card-body">
-                        <h2>{% trans "Добро пожаловать в наш блог о работе в сфере информационных технологий!" %}</h2>
-                        <p>{% trans "IT - это не просто профессия, это образ жизни. Мы обсуждаем самые актуальные темы, включая поиск работы, развитие навыков, профессиональный рост, интервью с экспертами, а также новые тенденции и перспективы в IT-индустрии. Наша цель - помочь вам стать успешным профессионалом в мире технологий и достичь новых высот в вашей карьере в IT! Здесь вы найдете полезные статьи, советы и руководства о карьере в IT. Наш блог предлагает широкий спектр материалов, начиная от технических решений и заканчивая советами по саморазвитию и профессиональному росту. Присоединяйтесь к нашему сообществу и будьте на шаг впереди в мире технологий." %}</p>
-                        <img src="https://static3.banki.ru/ugc/af/ef/91/b1/10992382.jpg" alt="Работа" class="card-img">
+                <div class="bg-image card shadow-1-strong border-dark"> <!-- Добавлен класс border-dark для черной обводки -->
+                    <div class="card card-bg"
+                         style="background: linear-gradient(90deg, rgba(58,0,100,1) 0%, rgba(7,188,137,1) 49%, rgba(58,0,100,1) 100%);">
+                        <div class="card-body text-white">
+                            <h2>{% trans "Добро пожаловать в наш блог о работе в сфере информационных технологий!" %}</h2>
+                            <p>{% trans "IT - это не просто профессия, это образ жизни. Мы обсуждаем самые актуальные темы, включая поиск работы, развитие навыков, профессиональный рост, интервью с экспертами, а также новые тенденции и перспективы в IT-индустрии. Наша цель - помочь вам стать успешным профессионалом в мире технологий и достичь новых высот в вашей карьере в IT! Здесь вы найдете полезные статьи, советы и руководства о карьере в IT. Наш блог предлагает широкий спектр материалов, начиная от технических решений и заканчивая советами по саморазвитию и профессиональному росту. Присоединяйтесь к нашему сообществу и будьте на шаг впереди в мире технологий." %}</p>
+                            <img src="https://static3.banki.ru/ugc/af/ef/91/b1/10992382.jpg" alt="Работа"
+                                 class="card-img">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -98,9 +102,28 @@
     </div>
 </div>
 
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+            crossorigin="anonymous"></script>
+    <script>
+        function showPostDetails(postId) {
+            var postBody = document.getElementById('post-body-' + postId);
+            var postImage = document.getElementById('post-image-' + postId);
+            if (postBody.style.display === 'none') {
+                postBody.style.display = 'block';
+                postImage.style.display = 'block';
+            } else {
+                postBody.style.display = 'none';
+                postImage.style.display = 'none';
+            }
+        }
+    </script>
+
 <footer class="bg-dark text-white py-4">
     <div class="container text-center">
-        <p>&copy;{% trans "2024 Блог о работе в IT" %}</p>
+        <p>&copy; {% trans "2024 Блог о работе в IT" %}</p>
         <form id="language-switch-form" action="{% url 'set_language' %}" method="post">{% csrf_token %}
             <input name="next" type="hidden" value="{{ redirect_to }}">
             <select id="language-select" name="language">
@@ -118,16 +141,20 @@
         </form>
     </div>
 </footer>
-
+</div>
+</body>
 <script>
     document.getElementById('language-select').addEventListener('change', function() {
         document.getElementById('language-switch-form').submit();
     });
 </script>
+{% include 'registration/modal_login.html' %}
+{% include 'registration/modal_register.html' %}
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-
-</body>
-</html>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+<script src="{% static 'main.js' %}"></script>

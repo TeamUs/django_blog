@@ -7,4 +7,4 @@ class ModelChoiceForm(forms.Form):
         ('polynomial_regression', 'Полиномиальная регрессия'),
         ('rnn', 'Рекуррентная нейронная сеть'),
     ]
-    model = forms.ChoiceField(choices=model_choices)
+    model = forms.ChoiceField(choices=model_choices,label="Выберите модель:")
