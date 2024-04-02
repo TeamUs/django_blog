@@ -2,3 +2,7 @@ Django==5.0.3
 mysqlclient==2.2.4
 django-modeltranslation~=0.18.11
 pytils~=0.4.1
+numpy
+tensorflow
+pandas
+sklearn

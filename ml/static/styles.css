@@ -1,0 +1,71 @@
+/* styles.css */
+
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212; /* Dark background color */
+    color: #eee; /* Light text color */
+}
+
+/* Header */
+.header {
+    background-color: #000; /* Black header background */
+    padding: 20px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2rem;
+    color: #ff00ff; /* Neon pink accent color */
+}
+
+/* Buttons */
+.button {
+    background-color: #ff00ff; /* Neon pink button background */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #ff0099; /* Darker neon pink on hover */
+}
+
+/* Glassmorphism Effect */
+.glass-effect {
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white */
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* Neon Text */
+.neon-text {
+    font-size: 1.5rem;
+    color: #ff00ff; /* Neon pink text color */
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff; /* Neon glow effect */
+}
+
+/* Dark Mode Toggle */
+.dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    cursor: pointer;
+}
+
+/* Neon Animation */
+@keyframes neon-glow {
+    0%, 100% {
+        text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+    }
+    50% {
+        text-shadow: none;
+    }
+}
+.neon-animate {
+    animation: neon-glow 1s infinite alternate;
+}
