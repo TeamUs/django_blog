@@ -5,11 +5,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto text-center text-white">
-                <h1 class="display-4 fw-bold mb-4">Модельное обучение и предсказание</h1>
+                <h1 class="display-4 fw-bold mb-4">{% trans "Модельное обучение и предсказание" %}</h1>
+                <p class="mb-4" style="color: white;">{% trans "Выберите модель:" %}</p>
                 <form method="post" class="mb-4">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <button type="submit" class="btn btn-primary">Выбрать модель</button>
+                    <button type="submit" class="btn btn-primary">{% trans "Выбрать модель" %}</button>
                 </form>
             </div>
         </div>

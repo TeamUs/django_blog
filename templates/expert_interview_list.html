@@ -27,26 +27,15 @@
                     {% endfor %}
                 </div>
             </div>
-        <div class="pagination mt-4 text-center" style="font-size: 1.25rem; font-weight: bold;">
-            <span class="step-links">
-                {% if page_obj.has_previous %}
-                    <a class="text-decoration-none text-dark" href="?page=1">{% trans "« Первая" %}</a>
-                    <a class="text-decoration-none text-dark" href="?page={{ page_obj.previous_page_number }}">{% trans "Предыдущая" %}</a>
-                {% endif %}
-
-                <span class="current">
-                    {% if page_obj.paginator.num_pages %}
-                        {% trans "Страница" %} {{ page_obj.number }} {% trans "из" %} {{ page_obj.paginator.num_pages }}
-                    {% else %}
-                        {% trans "Страница 1 из 1" %}
-                    {% endif %}
-                </span>
-
-                {% if page_obj.has_next %}
-                    <a class="text-decoration-none text-dark" href="?page={{ page_obj.next_page_number }}">{% trans "Следующая" %}</a>
-                    <a class="text-decoration-none text-dark" href="?page={{ page_obj.paginator.num_pages }}">{% trans "Последняя »" %}</a>
-                {% endif %}
+        <div class="pagination mt-4 text-center" style="font-size: 1.25rem; font-weight: bold; display: flex; justify-content: center;">    <span class="step-links">
+        {% if is_paginated %}            {% if page_obj.has_previous %}
+                <a class="text-decoration-none text-white me-3" href="?page=1">{% trans "« Первая" %}</a>                <a class="text-decoration-none text-white me-3" href="?page={{ page_obj.previous_page_number }}">{% trans "Предыдущая" %}</a>
+            {% endif %}
+            <span class="current" style="color: white;">                {% trans "Страница" %} {{ page_obj.number }} {% trans "из" %} {{ page_obj.paginator.num_pages }}
             </span>
+            {% if page_obj.has_next %}                <a class="text-decoration-none text-white ms-3" href="?page={{ page_obj.next_page_number }}">{% trans "Следующая" %}</a>
+                <a class="text-decoration-none text-white ms-3" href="?page={{ page_obj.paginator.num_pages }}">{% trans "Последняя »" %}</a>            {% endif %}
+        {% endif %}    </span>
         </div>
     </div>
 {% endblock content %}

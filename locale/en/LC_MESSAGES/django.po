@@ -196,13 +196,23 @@ msgid "Нет доступных статей"
 msgstr "There are no articles available"
 
 #: .\templates\home.html:56
-msgid "Выбор модели предсказания"
-msgstr "Choosing a prediction model"
-
-#: .\templates\home.html:56
-msgid "Выберите модель предсказания"
-msgstr "Choose a prediction model"
-
-#: .\templates\home.html:56
 msgid "Выбрать модель"
 msgstr "Choose a model"
+
+msgid "Модели"
+msgstr "Models"
+
+msgid "Модельное обучение и предсказание"
+msgstr "Model learning and prediction"
+
+msgid "Войти"
+msgstr "Log in"
+
+msgid "Регистрация"
+msgstr "Sign in"
+
+msgid "Нет интервью"
+msgstr "There is no interviews"
+
+msgid "Выберите модель:"
+msgstr "Choose a model:"
