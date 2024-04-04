@@ -68,12 +68,12 @@
         </form>
     {% else %}
         <a href="#" data-bs-toggle="modal" data-bs-target="#register_ajax" class="btn btn-outline-light mb-2">
-                Регистрация
+                {% trans "Регистрация" %}
             </a>
 {% if not user.is_authenticated %}
         <li class="list-group-item">
             <a href="#" data-bs-toggle="modal" data-bs-target="#login_ajax" class="btn btn-outline-light mb-2">
-                Войти
+                {% trans "Войти" %}
             </a>
         </li>
     {% endif %}    {% endif %}
