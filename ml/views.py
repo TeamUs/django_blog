@@ -1,11 +1,9 @@
-# titanic_predictor/views.py
 from django.shortcuts import render
 from .forms import ModelChoiceForm
 from .gradient_boosting import GradientBoostingModel
 from .polynomial_regression import PolynomialRegressionModel
 from .rnn import RNNModel
 import pandas as pd
-from django.http import HttpResponse
 import numpy as np
 
 def choose_model(request):
@@ -44,16 +42,16 @@ def choose_model(request):
             if model_choice == 'rnn':
                 predictions = np.round(predictions).astype(int).flatten()
 
-            # Create a DataFrame with the results
-            results_df = pd.DataFrame({'Sex': test_data['Sex'], 'Fare': test_data['Fare'], 'Age': test_data['Age'], 'Predicted': list(predictions)})
+            # Combine test data with predictions
+            test_data['Predicted'] = predictions.tolist()
 
-            # Save results to a CSV file
-            results_csv = results_df.to_csv(index=False)
+            # Prepare data for rendering in template
+            context = {
+                'form': form,
+                'test_data': test_data.to_dict('records'),  # Convert DataFrame to list of dictionaries
+            }
 
-            # Create an HTTP response for downloading the file
-            response = HttpResponse(results_csv, content_type='text/csv')
-            response['Content-Disposition'] = 'attachment; filename="results.csv"'
-            return response
+            return render(request, 'results.html', context)
     else:
         form = ModelChoiceForm()
     return render(request, 'choose_model.html', {'form': form})

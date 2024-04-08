@@ -70,7 +70,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django_1.context_processor.get_context_data'
             ],
         },
     },
@@ -138,9 +137,7 @@ LOCALE_PATHS = [
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
-STATICFILES_DIRS = [
-    BASE_DIR / 'static_src'
-]
+
 
 MEDIA_ROOT = (BASE_DIR / 'media')
 MEDIA_URL = '/media/'

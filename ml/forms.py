@@ -8,3 +8,4 @@ class ModelChoiceForm(forms.Form):
         ('rnn', 'Рекуррентная нейронная сеть'),
     ]
     model = forms.ChoiceField(choices=model_choices,label="")
+

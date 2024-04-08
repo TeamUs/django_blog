@@ -10,8 +10,8 @@
           integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <style>
         .post-container {
-            margin-top: 50px; /* Увеличение расстояния над постом */
-            margin-bottom: 50px; /* Увеличение расстояния под постом */
+            margin-top: 50px; 
+            margin-bottom: 50px; 
         }
     </style>
 </head>
@@ -57,26 +57,19 @@
                         </li>
                     </ul>
                 </div>
-               <div id="auth-buttons" class="d-flex flex-column align-items-end me-3">
-    {% if user.is_authenticated %}
+                <div id="auth-buttons" class="d-flex flex-column align-items-end me-3">
+       {% if user.is_authenticated %}
         <span class="text-light mb-4">
-    <a href="" class="text-decoration-none text-light">Добро пожаловать, {{ user.username }}!</a>
+    <a href="{% url 'profile' %}" class="text-decoration-none text-light">Добро пожаловать, {{ user.username }}!</a>
 </span>
         <form action="{% url 'logout' %}" method="post">
             {% csrf_token %}
             <button type="submit" class="btn btn-outline-light">Выйти</button>
         </form>
     {% else %}
-        <a href="#" data-bs-toggle="modal" data-bs-target="#register_ajax" class="btn btn-outline-light mb-2">
-                {% trans "Регистрация" %}
-            </a>
-{% if not user.is_authenticated %}
-        <li class="list-group-item">
-            <a href="#" data-bs-toggle="modal" data-bs-target="#login_ajax" class="btn btn-outline-light mb-2">
-                {% trans "Войти" %}
-            </a>
-        </li>
-    {% endif %}    {% endif %}
+        <a href="{% url 'register' %}" class="btn btn-outline-light mb-2">Регистрация</a>
+        <a href="{% url 'login' %}" class="btn btn-outline-light">Войти</a>
+    {% endif %}
 </div>
             </div>
         </nav>
@@ -148,13 +141,5 @@
         document.getElementById('language-switch-form').submit();
     });
 </script>
-{% include 'registration/modal_login.html' %}
-{% include 'registration/modal_register.html' %}
+</html>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-        crossorigin="anonymous"></script>
-<script src="{% static 'main.js' %}"></script>
