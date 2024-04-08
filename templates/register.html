@@ -1,0 +1,59 @@
+{% extends 'home.html' %}
+{% load i18n %}
+{% block content %}
+<style>
+    body {
+        background: linear-gradient(90deg, rgba(68,68,82,1) 0%, rgb(147,140,140) 64%, rgba(77,95,98,1) 100%);
+    }
+</style>
+
+<div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registrationModalLabel">Форма регистрации</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="{% url 'register' %}">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="inputUsername" class="form-label">Имя пользователя</label>
+                        <input type="text" class="form-control" id="inputUsername" name="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputPassword" class="form-label">Пароль</label>
+                        <input type="password" class="form-control" id="inputPassword" name="password" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="ReInputPassword" class="form-label">Повторите пароль</label>
+                        <input type="password" class="form-control" id="ReInputPassword" name="repeat_password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5"  style="margin-bottom: 300px;">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card border-0 shadow-lg">
+                <div class="card-header bg-white text-black">
+                    <h2 class="card-title text-center mb-0">Регистрация на сайте</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="{% url 'register' %}" enctype="multipart/form-data" class="row g-3">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-dark btn-lg btn-block mt-2">Зарегистрироваться</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
