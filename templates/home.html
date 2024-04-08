@@ -53,15 +53,15 @@
                <div id="auth-buttons" class="d-flex flex-column align-items-end me-3">
        {% if user.is_authenticated %}
         <span class="text-light mb-4">
-    <a href="{% url 'profile' %}" class="text-decoration-none text-light">Добро пожаловать, {{ user.username }}!</a>
+    <a href="{% url 'profile' %}" class="text-decoration-none text-light">{{ user.username }}</a>
 </span>
         <form action="{% url 'logout' %}" method="post">
             {% csrf_token %}
-            <button type="submit" class="btn btn-outline-light">Выйти</button>
+            <button type="submit" class="btn btn-outline-light">{% trans "Выйти" %}</button>
         </form>
     {% else %}
-        <a href="{% url 'register' %}" class="btn btn-outline-light mb-2">Регистрация</a>
-        <a href="{% url 'login' %}" class="btn btn-outline-light">Войти</a>
+        <a href="{% url 'register' %}" class="btn btn-outline-light mb-2">{% trans "Регистрация" %}</a>
+        <a href="{% url 'login' %}" class="btn btn-outline-light">{% trans "Войти" %}</a>
     {% endif %}
 </div>
             </div>

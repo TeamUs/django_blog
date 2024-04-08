@@ -208,6 +208,9 @@ msgstr "Model learning and prediction"
 msgid "Войти"
 msgstr "Log in"
 
+msgid "Выйти"
+msgstr "Log out"
+
 msgid "Регистрация"
 msgstr "Sign in"
 
@@ -216,3 +219,55 @@ msgstr "There is no interviews"
 
 msgid "Выберите модель:"
 msgstr "Choose a model:"
+
+msgid "Имя пользователя:"
+msgstr "Username:"
+
+msgid "Форма регистрации"
+msgstr "Registration form"
+
+msgid "Повторите пароль"
+msgstr "Repeat the password"
+
+msgid "Регистрация на сайте"
+msgstr "Registration on the website"
+
+msgid "Зарегистрироваться"
+msgstr "Sign in"
+
+msgid "Пароль"
+msgstr "Password"
+
+msgid "Имя пользователя"
+msgstr "Username"
+
+msgid "Авторизоваться"
+msgstr "Log in"
+
+msgid "Авторизация на сайте"
+msgstr "Authorization on the website"
+
+msgid "Вход в систему"
+msgstr "Log in to the system"
+
+msgid "Пол"
+msgstr "Sex"
+
+msgid "Возраст"
+msgstr "Age"
+
+msgid "Тариф"
+msgstr "Fare"
+
+msgid "Предсказанное выживание"
+msgstr "Predicted survival"
+
+msgid "Результаты предсказания"
+msgstr "Prediction results"
+
+
+
+
+
+
+

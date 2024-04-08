@@ -11,25 +11,25 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="registrationModalLabel">Форма регистрации</h5>
+                <h5 class="modal-title" id="registrationModalLabel">{% trans "Форма регистрации" %}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form method="post" action="{% url 'register' %}">
                     {% csrf_token %}
                     <div class="mb-3">
-                        <label for="inputUsername" class="form-label">Имя пользователя</label>
+                        <label for="inputUsername" class="form-label">{% trans "Имя пользователя" %}</label>
                         <input type="text" class="form-control" id="inputUsername" name="username" required>
                     </div>
                     <div class="mb-3">
-                        <label for="inputPassword" class="form-label">Пароль</label>
+                        <label for="inputPassword" class="form-label">{% trans "Пароль" %}</label>
                         <input type="password" class="form-control" id="inputPassword" name="password" required>
                     </div>
                     <div class="mb-3">
-                        <label for="ReInputPassword" class="form-label">Повторите пароль</label>
+                        <label for="ReInputPassword" class="form-label">{% trans "Повторите пароль" %}</label>
                         <input type="password" class="form-control" id="ReInputPassword" name="repeat_password" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+                    <button type="submit" class="btn btn-primary">{% trans "Зарегистрироваться" %}</button>
                 </form>
             </div>
         </div>
@@ -41,14 +41,14 @@
         <div class="col-md-6">
             <div class="card border-0 shadow-lg">
                 <div class="card-header bg-white text-black">
-                    <h2 class="card-title text-center mb-0">Регистрация на сайте</h2>
+                    <h2 class="card-title text-center mb-0">{% trans "Регистрация на сайте" %}</h2>
                 </div>
                 <div class="card-body">
                     <form method="post" action="{% url 'register' %}" enctype="multipart/form-data" class="row g-3">
                         {% csrf_token %}
                         {{ form.as_p }}
                         <div class="col-12">
-                            <button type="submit" class="btn btn-dark btn-lg btn-block mt-2">Зарегистрироваться</button>
+                            <button type="submit" class="btn btn-dark btn-lg btn-block mt-2">{% trans "Зарегистрироваться" %}</button>
                         </div>
                     </form>
                 </div>
