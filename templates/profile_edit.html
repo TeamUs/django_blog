@@ -49,15 +49,15 @@
                <div id="auth-buttons" class="d-flex flex-column align-items-end me-3">
     {% if user.is_authenticated %}
         <span class="text-light mb-4">
-    <a href="{% url 'profile' %}" class="text-decoration-none text-light">Добро пожаловать, {{ user.username }}!</a>
+    <a href="{% url 'profile' %}" class="text-decoration-none text-light">{{ user.username }}</a>
 </span>
         <form action="{% url 'logout' %}" method="post">
             {% csrf_token %}
-            <button type="submit" class="btn btn-outline-light">Выйти</button>
+            <button type="submit" class="btn btn-outline-light">{% trans "Выйти" %}</button>
         </form>
     {% else %}
-        <a href="{% url 'register' %}" class="btn btn-outline-light mb-2">Регистрация</a>
-        <a href="{% url 'login' %}" class="btn btn-outline-light">Войти</a>
+        <a href="{% url 'register' %}" class="btn btn-outline-light mb-2">{% trans "Регистрация" %}</a>
+        <a href="{% url 'login' %}" class="btn btn-outline-light">{% trans "Войти" %}</a>
     {% endif %}
 </div>
             </div>
@@ -70,27 +70,27 @@
             <div class="col-md-8">
                 <div class="card bg-light shadow-lg">
                     <div class="card-header bg-white">
-                        <h2 class="card-title mb-0 text-dark">Редактирование профиля пользователя: {{ user.username }}</h2>
+                        <h2 class="card-title mb-0 text-dark">{% trans "Редактирование профиля пользователя" %}</h2>
                     </div>
                     <div class="card-body">
                         <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
                             {% csrf_token %}
                             <div class="mb-3">
-                                <label for="id_first_name" class="form-label">Имя</label>
+                                <label for="id_first_name" class="form-label">{% trans "Имя" %}</label>
                                 {{ form.first_name }}
-                                <div class="invalid-feedback">Пожалуйста, введите ваше имя.</div>
+                                <div class="invalid-feedback">{% trans "Пожалуйста, введите ваше имя." %}</div>
                             </div>
                             <div class="mb-3">
-                                <label for="id_last_name" class="form-label">Фамилия</label>
+                                <label for="id_last_name" class="form-label">{% trans "Фамилия" %}</label>
                                 {{ form.last_name }}
-                                <div class="invalid-feedback">Пожалуйста, введите вашу фамилию.</div>
+                                <div class="invalid-feedback">{% trans "Пожалуйста, введите вашу фамилию." %}</div>
                             </div>
                             <div class="mb-3">
-                            <label for="id_email" class="form-label">Почта</label>
+                            <label for="id_email" class="form-label">{% trans "Почта" %}</label>
                                 {{ form.email }}
-                                 <div class="invalid-feedback">Пожалуйста, введите вашу почту.</div>
+                                 <div class="invalid-feedback">{% trans "Пожалуйста, введите вашу почту." %}</div>
                             </div>
-                            <button type="submit" class="btn btn-dark">Подтвердить изменения профиля</button>
+                            <button type="submit" class="btn btn-dark">{% trans "Подтвердить изменения профиля" %}</button>
                         </form>
                     </div>
                 </div>

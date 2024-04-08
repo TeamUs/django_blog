@@ -265,6 +265,40 @@ msgstr "Predicted survival"
 msgid "Результаты предсказания"
 msgstr "Prediction results"
 
+msgid "Личный кабинет пользователя"
+msgstr "User's account"
+
+msgid "Имя"
+msgstr "Name"
+
+msgid "Фамилия"
+msgstr "Surname"
+
+msgid "Почта"
+msgstr "Email"
+
+msgid "Изменить данные"
+msgstr "Edit"
+
+msgid "Редактирование профиля пользователя"
+msgstr "Editing a user's profile"
+
+msgid "Пожалуйста, введите ваше имя."
+msgstr "Please enter your name."
+
+msgid "Пожалуйста, введите вашу фамилию."
+msgstr "Please enter your last name."
+
+msgid "Пожалуйста, введите вашу почту."
+msgstr "Please enter your email address."
+
+msgid "Подтвердить изменения профиля"
+msgstr "Confirm profile changes"
+
+
+
+
+
 
 
 
