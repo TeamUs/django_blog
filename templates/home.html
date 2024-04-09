@@ -154,54 +154,7 @@
                 </div>
             {% endfor %}
         </div>
-<div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="registrationModalLabel">{% trans "Регистрация" %}</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="registrationForm" method="post" action="{% url 'register' %}">
-                    {% csrf_token %}
-                    <label>
-                        <input type="text" name="username" placeholder="Имя пользователя" required>
-                    </label>
-                    <label>
-                        <input type="password" name="password1" placeholder="Пароль" required>
-                    </label>
-                    <label>
-                        <input type="password" name="password2" placeholder="Подтвердите пароль" required>
-                    </label>
-                    <button type="submit" class="btn btn-primary">{% trans "Зарегистрироваться" %}</button>
-                </form>
-                <script src="{% static 'js/main.js' %}"></script>
-                </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="loginModalLabel">{% trans "Вход" %}</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-            <form method="post" action="{% url 'login' %}">
-                {% csrf_token %}
-                <label>
-                    <input type="text" name="username" placeholder="Имя пользователя" required>
-                </label>
-                <label>
-                    <input type="password" name="password" placeholder="Пароль" required>
-                </label>
-                <button type="submit" class="btn btn-primary">{% trans "Войти" %}</button>
-            </form>
-            </div>
-        </div>
-    </div>
-</div>
+
 <div class="pagination mt-4 text-center" style="font-size: 1.25rem; font-weight: bold; display: flex; justify-content: center;">    <span class="step-links">
         {% if is_paginated %}            {% if page_obj.has_previous %}
                 <a class="text-decoration-none text-white me-3" href="?page=1">{% trans "« Первая" %}</a>                <a class="text-decoration-none text-white me-3" href="?page={{ page_obj.previous_page_number }}">{% trans "Предыдущая" %}</a>
