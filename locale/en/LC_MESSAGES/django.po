@@ -295,6 +295,20 @@ msgstr "Please enter your email address."
 msgid "Подтвердить изменения профиля"
 msgstr "Confirm profile changes"
 
+msgid "Градиентный бустинг"
+msgstr "Gradient boosting"
+
+msgid "Полиномиальная регрессия"
+msgstr "Polynomial regression"
+
+msgid "Рекуррентная нейронная сеть"
+msgstr "Recurrent neural network"
+
+msgid "Подтвердите пароль"
+msgstr "Confirm the password"
+
+msgid "Вход"
+msgstr "Log in"
 
 
 
