@@ -310,6 +310,9 @@ msgstr "Confirm the password"
 msgid "Вход"
 msgstr "Log in"
 
+msgid "Нет статей"
+msgstr "There are no articles"
+
 
 
 
