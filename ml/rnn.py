@@ -13,7 +13,7 @@ class RNNModel:
 
     def train(self, X_train, y_train):
         self.model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
-        self.model.fit(np.expand_dims(X_train, axis=2), y_train, epochs=100, batch_size=32)
+        self.model.fit(np.expand_dims(X_train, axis=2), y_train, epochs=20, batch_size=32)
 
     def predict(self, X_test):
         return self.model.predict(X_test)
